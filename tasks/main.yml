@@ -5,14 +5,14 @@
     state: latest
   notify: open network port
 
-- name: Creating a file with content
-  copy:
-    dest: "{{ index_file_path }}"
-    content: |
-      Welcome to myweb server
-  notify: Start service httpd
+# - name: Creating a file with content
+#   copy:
+#     dest: "{{ index_file_path }}"
+#     content: |
+#       Welcome to myweb server
+#   notify: Start service httpd
 
-- name: Template a file to /etc/files.conf
+- name: Template a file to "{{ index_file_path }}"
   template:
     src: templ.j2
     dest: "{{ index_file_path }}"
