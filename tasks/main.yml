@@ -16,3 +16,7 @@
   template:
     src: templ.j2
     dest: "{{ index_file_path }}"
+
+- name: show templating results
+  debug:
+    msg: "{{ lookup('template', 'templ.j2') }}"
