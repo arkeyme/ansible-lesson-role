@@ -1,2 +1,12 @@
 ---
-# handlers file for ansible-lesson-role
+- name: open network port
+  firewalld:
+    service: "{{ network_port }}"
+    permanent: yes
+    state: enabled
+
+- name: Start service httpd
+  service:
+    name: "{{ service_name }}"
+    state: started
+    enabled: yes
