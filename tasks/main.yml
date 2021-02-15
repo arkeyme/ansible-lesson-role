@@ -13,3 +13,5 @@
   template:
     src: templ.j2
     dest: "{{ index_file_path }}"
+  notify: 
+    - Restart service httpd
