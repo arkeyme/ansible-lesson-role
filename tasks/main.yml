@@ -1,17 +1,13 @@
 ---
-- name: install apache httpd
-  hosts: [ node1.example.com, node2.example.com ]
+- name: Install httpd
+  yum:
+    name: "{{ package_name }}"
+    state: latest
+  notify: open network port
 
-  tasks:
-  - name: Install httpd
-    yum:
-      name: "{{ package_name }}"
-      state: latest
-    notify: open network port
-
-  - name: Creating a file with content
-    copy:
-      dest: "{{ index_file_path }}"
-      content: |
-        Welcome to myweb server
-    notify: Start service httpd
+- name: Creating a file with content
+  copy:
+    dest: "{{ index_file_path }}"
+    content: |
+      Welcome to myweb server
+  notify: Start service httpd
