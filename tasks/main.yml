@@ -3,7 +3,9 @@
   yum:
     name: "{{ package_name }}"
     state: latest
-  notify: open network port
+  notify: 
+    - open network port
+    - start service httpd
 
 - name: show templating results for debug purpose
   debug:
@@ -14,4 +16,4 @@
     src: templ.j2
     dest: "{{ index_file_path }}"
   notify: 
-    - Restart service httpd
+    - restart service httpd
