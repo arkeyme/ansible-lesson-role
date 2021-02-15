@@ -11,3 +11,8 @@
     content: |
       Welcome to myweb server
   notify: Start service httpd
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: templ.j2
+    dest: "{{ index_file_path }}"
