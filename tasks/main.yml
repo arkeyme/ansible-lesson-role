@@ -12,11 +12,11 @@
 #       Welcome to myweb server
 #   notify: Start service httpd
 
+- name: show templating results for debug purpose
+  debug:
+    msg: "{{ lookup('template', 'templ.j2') }}"
+
 - name: Template a file to "{{ index_file_path }}"
   template:
     src: templ.j2
     dest: "{{ index_file_path }}"
-
-- name: show templating results
-  debug:
-    msg: "{{ lookup('template', 'templ.j2') }}"
