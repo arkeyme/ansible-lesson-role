@@ -5,13 +5,6 @@
     state: latest
   notify: open network port
 
-# - name: Creating a file with content
-#   copy:
-#     dest: "{{ index_file_path }}"
-#     content: |
-#       Welcome to myweb server
-#   notify: Start service httpd
-
 - name: show templating results for debug purpose
   debug:
     msg: "{{ lookup('template', 'templ.j2') }}"
