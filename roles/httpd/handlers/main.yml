@@ -4,6 +4,7 @@
     service: "{{ network_port }}"
     permanent: yes
     state: enabled
+    immediate: yes
 
 - name: start service httpd
   service:
